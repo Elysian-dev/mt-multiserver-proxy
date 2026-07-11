@@ -17,10 +17,9 @@ func BuildPlugin() error {
 		return err
 	}
 
-	if strings.Contains(version, "+dirty") {
-		return buildPluginDev(version)
+	if version == "(devel)" || strings.Contains(version, "+dirty") {
+    		return buildPluginDev(version)
 	}
-
 	return buildPlugin(version)
 }
 
